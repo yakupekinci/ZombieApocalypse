@@ -7,9 +7,10 @@ public class ScoreUi : MonoBehaviour
 {
     public RowUi rowUi;
     public ScoreMan scoreManager;
-    
+
     void Start()
     {
+    
         var scores = scoreManager.GetHighScores().ToArray();
         for (int i = 0; i < scores.Length; i++)
         {
@@ -20,4 +21,3 @@ public class ScoreUi : MonoBehaviour
         }
     }
 }
-
