@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject helpPanel;
     public GameObject score;
     public GameObject Player;
-    public GameObject camera;
+    public GameObject cameraa;
     public GameObject Canvas;
     public bool easy;
     public bool normal;
@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
         Canvas.SetActive(false);
         Player.GetComponent<PlayerMovementScript>().enabled = true;
         Player.GetComponent<MouseLookScript>().enabled = true;
-        camera.SetActive(false);
+        cameraa.SetActive(false);
         Cursor.visible = false;
 
 
@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
         Canvas.SetActive(false);
         Player.GetComponent<PlayerMovementScript>().enabled = true;
         Player.GetComponent<MouseLookScript>().enabled = true;
-        camera.SetActive(false);
+        cameraa.SetActive(false);
         Cursor.visible = false;
 
 
@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
         Canvas.SetActive(false);
         Player.GetComponent<PlayerMovementScript>().enabled = true;
         Player.GetComponent<MouseLookScript>().enabled = true;
-        camera.SetActive(false);
+        cameraa.SetActive(false);
         Cursor.visible = false;
     }
 
