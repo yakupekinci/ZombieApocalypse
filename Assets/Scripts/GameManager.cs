@@ -75,17 +75,17 @@ public class GameManager : MonoBehaviour
     }
     public void StartGame()
     {
-        _scoreDisplay.ShowScore();
-        //scoreDisplay.SetActive(true);
-        PlayerPrefs.Save();
+        //_scoreDisplay.ShowScore();
+
         SceneManager.LoadScene(1);
-        PlayerPrefs.Save();
+
 
     }
 
     public void SetDifficultyEasy()
     {
         easy = true;
+        scoreDisplay.SetActive(true);
         Canvas.SetActive(false);
         Player.GetComponent<PlayerMovementScript>().enabled = true;
         Player.GetComponent<MouseLookScript>().enabled = true;
@@ -98,7 +98,9 @@ public class GameManager : MonoBehaviour
 
     public void SetDifficultyMedium()
     {
+
         normal = true;
+        scoreDisplay.SetActive(true);
         Canvas.SetActive(false);
         Player.GetComponent<PlayerMovementScript>().enabled = true;
         Player.GetComponent<MouseLookScript>().enabled = true;
@@ -112,6 +114,7 @@ public class GameManager : MonoBehaviour
     public void SetDifficultyHard()
     {
         hard = true;
+        scoreDisplay.SetActive(true);
         Canvas.SetActive(false);
         Player.GetComponent<PlayerMovementScript>().enabled = true;
         Player.GetComponent<MouseLookScript>().enabled = true;

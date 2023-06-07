@@ -9,14 +9,15 @@ public class ScoreDisplay : MonoBehaviour
     public TMP_InputField nameText;
     public ScoreMan scoreManager;
 
-    public void ShowScore()
+    public void Start()
     {
         int score = 0;
-        string name = "NovaDa";
-        PlayerPrefs.SetString("Name", name);
+        string name = nameText.text;
+        PlayerPrefs.SetString("Name",name);
         PlayerPrefs.SetInt("Score", score);
         PlayerPrefs.Save();
-        
+
+
     }
 
 

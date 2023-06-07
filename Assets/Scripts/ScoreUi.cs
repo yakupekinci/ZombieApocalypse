@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using CodeMonkey.Utils;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,6 +32,24 @@ public class ScoreUi : MonoBehaviour
             row.rank.text = (i + 1).ToString();
             row.name.text = scores[i].name;
             row.score.text = scores[i].score.ToString();
+            if (row.rank.text == 1.ToString())
+            {
+                row.trophy.color = UtilsClass.GetColorFromString("FFD200");
+            }
+            else if (row.rank.text == 2.ToString())
+            {
+                row.trophy.color = UtilsClass.GetColorFromString("C6C6C6");
+            }
+            else if (row.rank.text == 3.ToString())
+            {
+                row.trophy.color = UtilsClass.GetColorFromString("B76F56");
+            }
+            else
+            {
+                row.trophy.gameObject.SetActive(false);
+            }
+
+
         }
     }
 }

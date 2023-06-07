@@ -186,15 +186,12 @@ public class PlayerMovementScript : MonoBehaviour
         // Fare imleci etkinleştirilir
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-
         ScoreMan scoreMan = FindObjectOfType<ScoreMan>();
         ScoreManager scoreManager = FindObjectOfType<ScoreManager>();
         string name = PlayerPrefs.GetString("Name", "");
-        // int score = PlayerPrefs.GetInt("Score", 0);
-        PlayerPrefs.SetInt("Score", scoreManager.score);
         Debug.Log("Name: " + name);
         Debug.Log("Score: " + scoreManager.score);
-        scoreMan.AddScore(new Score("Yakup", scoreManager.score));
+        scoreMan.AddScore(new Score(name, scoreManager.score));
     }
 
 

@@ -11,44 +11,44 @@ public class HighscoreTable : MonoBehaviour
 
     private List<Transform> highscoreEntryTransformList;
 
-private void Awake()
-{
-    entryContainer = transform.Find("highscoreEntryContainer");
-    entryTemplate = entryContainer.Find("highscoreEntryTemplate");
-
-    entryTemplate.gameObject.SetActive(false);
-
-    string jsonString = PlayerPrefs.GetString("highscoreTable");
-    Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
-
-    if (highscores == null || highscores.highscoreEntryList.Count == 0)
+    private void Awake()
     {
-        // There's no stored table or it's empty, initialize
-        Debug.Log("Initializing table with default values...");
-        highscores = new Highscores()
+        entryContainer = transform.Find("highscoreEntryContainer");
+        entryTemplate = entryContainer.Find("highscoreEntryTemplate");
+
+        entryTemplate.gameObject.SetActive(false);
+
+        string jsonString = PlayerPrefs.GetString("highscoreTable");
+        Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
+
+        if (highscores == null || highscores.highscoreEntryList.Count == 0)
         {
-            highscoreEntryList = new List<HighscoreEntry>()
-        };
-    }
-    
-    else
-    {
-        // Clear existing entries
-        foreach (Transform child in entryContainer)
+            // There's no stored table or it's empty, initialize
+            Debug.Log("Initializing table with default values...");
+            highscores = new Highscores()
+            {
+                highscoreEntryList = new List<HighscoreEntry>()
+            };
+        }
+
+        else
         {
-            Destroy(child.gameObject);
+            // Clear existing entries
+            foreach (Transform child in entryContainer)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+
+        // Sort entry list by Score
+        highscores.highscoreEntryList.Sort((x, y) => y.score.CompareTo(x.score));
+
+        highscoreEntryTransformList = new List<Transform>();
+        foreach (HighscoreEntry highscoreEntry in highscores.highscoreEntryList)
+        {
+            CreateHighscoreEntryTransform(highscoreEntry, entryContainer, highscoreEntryTransformList);
         }
     }
-
-    // Sort entry list by Score
-    highscores.highscoreEntryList.Sort((x, y) => y.score.CompareTo(x.score));
-
-    highscoreEntryTransformList = new List<Transform>();
-    foreach (HighscoreEntry highscoreEntry in highscores.highscoreEntryList)
-    {
-        CreateHighscoreEntryTransform(highscoreEntry, entryContainer, highscoreEntryTransformList);
-    }
-}
 
 
     private void CreateHighscoreEntryTransform(
