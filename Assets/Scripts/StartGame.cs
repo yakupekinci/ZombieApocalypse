@@ -30,7 +30,7 @@ public class StartGame : MonoBehaviour
         if (other.gameObject.name == "PlayerAnim")
         {
 
-            playerAnim.GetComponent<Animator>().SetBool("isPlayer", true);
+          //  playerAnim.GetComponent<Animator>().SetBool("isPlayer", true);
         }
         if (other.gameObject.name == "StartGame")
         {

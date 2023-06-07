@@ -22,6 +22,7 @@ public class ZombieSpawner : MonoBehaviour
 
     void Start()
     {
+        PlayerPrefs.Save();
         time = startingTime;
         StartCoroutine(SpawnWaves());
     }

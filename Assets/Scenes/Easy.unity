@@ -37777,7 +37777,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1138698068}
   - component: {fileID: 1138698067}
-  - component: {fileID: 1138698070}
   - component: {fileID: 1138698069}
   m_Layer: 0
   m_Name: ScoreManager
@@ -37801,6 +37800,7 @@ MonoBehaviour:
   zombieSpawner: {fileID: 904476329}
   scoreText: {fileID: 1664313994}
   timerText: {fileID: 767182221}
+  score: 0
 --- !u!4 &1138698068
 Transform:
   m_ObjectHideFlags: 0
@@ -37825,22 +37825,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1138698066}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 847b53def59fd7d48acdca43be736bf5, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e187af061c741b4fa1776f4f299fa00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1138698070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1138698066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e95b6b25a5222e84387be4c5154b0899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreManager: {fileID: 1138698069}
 --- !u!1001 &1166475923
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] StartGame startGame;
+    public GameObject scoreDisplay;
     public GameObject mainMenuPanel;
     public GameObject difficultyPanel;
     public GameObject helpPanel;
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
     public Texture2D cursorTexture; // İmleç için kullanılacak texture
     public CursorMode cursorMode = CursorMode.Auto; // İmleç modu
 
+    public ScoreDisplay _scoreDisplay;
     private bool isMainMenuActive = true;
 
     void Start()
@@ -27,7 +29,7 @@ public class GameManager : MonoBehaviour
         Player.GetComponent<PlayerMovementScript>().enabled = false;
         Player.GetComponent<MouseLookScript>().enabled = false;
         Cursor.SetCursor(cursorTexture, Vector2.zero, cursorMode);
-
+        _scoreDisplay = FindObjectOfType<ScoreDisplay>();
         Cursor.visible = true;
 
         // Fare imleci etkinleştirilir
@@ -37,6 +39,7 @@ public class GameManager : MonoBehaviour
 
     public void ShowMainMenu()
     {
+        scoreDisplay.SetActive(false);
         mainMenuPanel.SetActive(true);
         difficultyPanel.SetActive(false);
         helpPanel.SetActive(false);
@@ -72,7 +75,11 @@ public class GameManager : MonoBehaviour
     }
     public void StartGame()
     {
+        _scoreDisplay.ShowScore();
+        //scoreDisplay.SetActive(true);
+        PlayerPrefs.Save();
         SceneManager.LoadScene(1);
+        PlayerPrefs.Save();
 
     }
 

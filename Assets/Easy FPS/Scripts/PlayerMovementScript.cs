@@ -163,10 +163,17 @@ public class PlayerMovementScript : MonoBehaviour
         HP -= damage;
     }
 
+    private bool hasDied = false;
+
     IEnumerator Died()
     {
+        if (hasDied)
+            yield break; // Fonksiyonu daha fazla çalıştırmayı engelle
+
+        hasDied = true;
+
         rb.isKinematic = true;
-        //  GameObject gun = GameObject.FindGameObjectWithTag("Weapon");
+        // GameObject gun = GameObject.FindGameObjectWithTag("Weapon");
         this.GetComponent<MouseLookScript>().enabled = false;
         this.GetComponent<GunInventory>().enabled = false;
         // gun.SetActive(false);
@@ -179,8 +186,17 @@ public class PlayerMovementScript : MonoBehaviour
         // Fare imleci etkinleştirilir
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        ScoreMan scoreMan=FindObjectOfType<ScoreMan>();
+
+        ScoreMan scoreMan = FindObjectOfType<ScoreMan>();
+        ScoreManager scoreManager = FindObjectOfType<ScoreManager>();
+        string name = PlayerPrefs.GetString("Name", "");
+        // int score = PlayerPrefs.GetInt("Score", 0);
+        PlayerPrefs.SetInt("Score", scoreManager.score);
+        Debug.Log("Name: " + name);
+        Debug.Log("Score: " + scoreManager.score);
+        scoreMan.AddScore(new Score("Yakup", scoreManager.score));
     }
+
 
     /*
     * Checks if player is grounded and plays the sound accorindlgy to his speed

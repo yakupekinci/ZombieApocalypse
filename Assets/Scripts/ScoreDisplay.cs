@@ -6,13 +6,18 @@ using TMPro;
 
 public class ScoreDisplay : MonoBehaviour
 {
-    public TMP_Text nameText;
+    public TMP_InputField nameText;
     public ScoreMan scoreManager;
 
-    private void Start()
+    public void ShowScore()
     {
-        int score = PlayerPrefs.GetInt("Score", 0);
-        var name = PlayerPrefs.GetString("Name",nameText.text);
-        //scoreManager.AddScore(new Score(name, score));
+        int score = 0;
+        string name = "NovaDa";
+        PlayerPrefs.SetString("Name", name);
+        PlayerPrefs.SetInt("Score", score);
+        PlayerPrefs.Save();
+        
     }
+
+
 }

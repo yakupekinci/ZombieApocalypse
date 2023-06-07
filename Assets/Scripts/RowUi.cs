@@ -5,6 +5,6 @@ public class RowUi : MonoBehaviour
 {
     
     public Text rank;
-    public Text Name;
+    public Text name;
     public Text score;
 }

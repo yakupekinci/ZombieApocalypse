@@ -6,12 +6,12 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] ZombieSpawner zombieSpawner;
     public TMP_Text scoreText;
     public TMP_Text timerText;
-    private int score = 0;
+    public int score = 0;
 
     private void Start()
     {
         UpdateScoreText();
-         score = PlayerPrefs.GetInt("Score", 0);
+        
     }
 
     private void Update()
@@ -26,7 +26,7 @@ public class ScoreManager : MonoBehaviour
     {
         score += amount;
         UpdateScoreText();
-         PlayerPrefs.SetInt("Score", score);
+     
     }
 
     void UpdateScoreText()
