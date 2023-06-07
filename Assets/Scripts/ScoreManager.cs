@@ -11,6 +11,7 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         UpdateScoreText();
+         score = PlayerPrefs.GetInt("Score", 0);
     }
 
     private void Update()
@@ -25,7 +26,7 @@ public class ScoreManager : MonoBehaviour
     {
         score += amount;
         UpdateScoreText();
-        MYGameManager.Instance.currentScore = score; // Score'u MYGameManager'a aktar
+         PlayerPrefs.SetInt("Score", score);
     }
 
     void UpdateScoreText()

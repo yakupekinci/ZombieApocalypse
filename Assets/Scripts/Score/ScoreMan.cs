@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,6 +6,7 @@ using UnityEngine;
 public class ScoreMan : MonoBehaviour
 {
     private ScoreData sd;
+
     void Awake()
     {
         var json = PlayerPrefs.GetString("scores", "{}");
@@ -21,6 +21,10 @@ public class ScoreMan : MonoBehaviour
     public void AddScore(Score score)
     {
         sd.scores.Add(score);
+        if (sd.scores.Count > 10)
+        {
+            sd.scores = sd.scores.OrderByDescending(x => x.score).Take(10).ToList();
+        }
     }
 
     private void OnDestroy()
@@ -31,30 +35,6 @@ public class ScoreMan : MonoBehaviour
     public void SaveScore()
     {
         var json = JsonUtility.ToJson(sd);
-        Debug.Log(json);
         PlayerPrefs.SetString("scores", json);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
