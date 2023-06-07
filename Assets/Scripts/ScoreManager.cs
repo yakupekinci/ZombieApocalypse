@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class ScoreMan : MonoBehaviour
+public class ScoreManager : MonoBehaviour
 {
     [SerializeField] ZombieSpawner zombieSpawner;
     public TMP_Text scoreText;

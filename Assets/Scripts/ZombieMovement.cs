@@ -61,7 +61,7 @@ public class ZombieMovement : MonoBehaviour
             GameObject scoreManager = GameObject.FindGameObjectWithTag("ScoreManager");
             if (scoreManager != null)
             {
-                ScoreMan scoreManagerScript = scoreManager.GetComponent<ScoreMan>();
+                ScoreManager scoreManagerScript = scoreManager.GetComponent<ScoreManager>();
                 if (scoreManagerScript != null)
                 {
                     if (!a)
