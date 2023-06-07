@@ -30,6 +30,7 @@ private void Awake()
             highscoreEntryList = new List<HighscoreEntry>()
         };
     }
+    
     else
     {
         // Clear existing entries
@@ -80,7 +81,6 @@ private void Awake()
                 rankString = "3RD";
                 break;
         }
-
         entryTransform.Find("posText").GetComponent<Text>().text = rankString;
 
         int score = highscoreEntry.score;
