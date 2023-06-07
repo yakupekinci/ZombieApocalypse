@@ -19,6 +19,7 @@ public class PlayerMovementScript : MonoBehaviour
     public int HP = 100;
     public bool isLife;
     public GameObject deadBody;
+    public GameObject UIS;
     public GameObject deadCamera;
     public GameObject GameOver;
     public TMP_Text HpBar;
@@ -146,22 +147,27 @@ public class PlayerMovementScript : MonoBehaviour
     }//end update
     public void TakeDamage(int damage)
     {
-
+       // Animator anim =GameObject.FindWithTag("Weapon").transform.GetChild(1).GetComponent<Animator>();
+       // anim.SetBool("isDamage",true);
+        
         HP -= damage;
     }
     IEnumerator Died()
     {
         rb.isKinematic = true;
-        GameObject gun = GameObject.FindGameObjectWithTag("Weapon");
+      //  GameObject gun = GameObject.FindGameObjectWithTag("Weapon");
         this.GetComponent<MouseLookScript>().enabled = false;
         this.GetComponent<GunInventory>().enabled = false;
-        gun.SetActive(false);
+       // gun.SetActive(false);
         this.transform.GetChild(0).gameObject.SetActive(false);
         deadCamera.gameObject.SetActive(true);
         deadBody.gameObject.SetActive(true);
+        UIS.gameObject.SetActive(false);
         yield return new WaitForSecondsRealtime(2f);
         GameOver.gameObject.SetActive(true);
         Cursor.visible = true;
+        MYGameManager mYGame=FindObjectOfType<MYGameManager>();
+        mYGame.GameOver();
 
         // Fare imleci etkinleştirilir
         Cursor.lockState = CursorLockMode.None; ;
