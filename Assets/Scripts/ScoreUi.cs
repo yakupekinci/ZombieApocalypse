@@ -29,7 +29,7 @@ public class ScoreUi : MonoBehaviour
 
             var row = Instantiate(rowUi, transform).GetComponent<RowUi>();
             row.rank.text = (i + 1).ToString();
-            row.name.text = scores[i].name;
+            row.Name.text = scores[i].name;
             row.score.text = scores[i].score.ToString();
         }
     }
