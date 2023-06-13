@@ -69,7 +69,7 @@ public class ZombieMovement : MonoBehaviour
                         scoreManagerScript.IncreaseScore(5);
                         a = true;
                     }
-                } 
+                }
             }
         }
         else
@@ -112,14 +112,8 @@ public class ZombieMovement : MonoBehaviour
             }
             else
             {
-                /*  zombieNavMash.isStopped = true;
-                 anim.SetBool("isAttack", false);
-                 anim.SetBool("isAttack2", false);
-                 anim.SetBool("isWalk", false);
-                 anim.SetBool("isRun", false); */
-                // Zombiyi hedefe doğru yönlendirin
-                zombieNavMash.SetDestination(targetPosition);
-                anim.SetBool("isIdle", false);
+              
+                zombieNavMash.SetDestination(targetPosition);    
                 anim.SetBool("isWalk", true);
 
 
@@ -160,7 +154,7 @@ public class ZombieMovement : MonoBehaviour
     IEnumerator RandomizeTargetPosition()
     {
         // Belirli bir süre bekleyin
-        yield return new WaitForSeconds(Random.Range(9f, 10f));
+        yield return new WaitForSeconds(Random.Range(10, 15f));
 
         // Rastgele bir nokta seçin
         Vector2 randomPoint = Random.insideUnitCircle * radius;
@@ -180,13 +174,13 @@ public class ZombieMovement : MonoBehaviour
         {
             int damage = Random.Range(minDamage, maxDamage + 10);
             player.GetComponent<PlayerMovementScript>().TakeDamage(damage);
-            player.GetComponent<Animator>().SetBool("IsDamage",true);
+            player.GetComponent<Animator>().SetBool("IsDamage", true);
         }
         else if (gameObject.name.StartsWith("WalkZombie"))
         {
             int damage = Random.Range(minDamage, maxDamage);
             player.GetComponent<PlayerMovementScript>().TakeDamage(damage);
-            player.GetComponent<Animator>().SetBool("IsDamage",true);
+            player.GetComponent<Animator>().SetBool("IsDamage", true);
         }
     }
 

@@ -1159,6 +1159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5167821568718796647}
   - component: {fileID: 7571946111335375402}
+  - component: {fileID: 1108858431890426093}
   m_Layer: 2
   m_Name: Head
   m_TagString: Untagged
@@ -1195,6 +1196,20 @@ CapsuleCollider:
   m_Height: 0.21
   m_Direction: 1
   m_Center: {x: -0.022007762, y: 0.04568511, z: 0.066498056}
+--- !u!136 &1108858431890426093
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5774596819175552315}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.12920332
+  m_Height: 0.31300107
+  m_Direction: 1
+  m_Center: {x: -0.021726087, y: 0.02627535, z: 0.05710814}
 --- !u!1 &5780446026992574004
 GameObject:
   m_ObjectHideFlags: 0
@@ -1350,7 +1365,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.3
+  m_Radius: 0.32
   m_Height: 1.7727029
   m_Direction: 1
   m_Center: {x: -0.0069351243, y: 0.90022165, z: 0}
@@ -1379,7 +1394,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 5951298143642503696}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.25
+  m_Radius: 0.3
   m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50

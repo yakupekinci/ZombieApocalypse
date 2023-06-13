@@ -194,12 +194,11 @@ public class MouseLookScript : MonoBehaviour
     */
     void OnGUI()
     {
-
-        if (showFps)
-        {
-            FPSCounter();
-        }
-
+        /*   if (showFps)
+          {
+              FPSCounter();
+          }
+   */
     }
     /*
     * Calculating real fps because unity status tab shows too much fps even when its not that mutch so i made my own.
@@ -207,9 +206,7 @@ public class MouseLookScript : MonoBehaviour
     void FPSCounter()
     {
         int w = Screen.width, h = Screen.height;
-
         GUIStyle style = new GUIStyle();
-
         Rect rect = new Rect(0, 0, w, h * 2 / 100);
         style.alignment = TextAnchor.UpperLeft;
         style.fontSize = h * 2 / 100;
