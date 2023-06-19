@@ -27,11 +27,7 @@ public class StartGame : MonoBehaviour
             StartCoroutine(WaitDoor());
 
         }
-        if (other.gameObject.name == "PlayerAnim")
-        {
-
-          //  playerAnim.GetComponent<Animator>().SetBool("isPlayer", true);
-        }
+      
         if (other.gameObject.name == "StartGame")
         {
             hp = true;
