@@ -18,6 +18,7 @@ public class ZombieSpawner : MonoBehaviour
     private int waveCount = 1;
     private int minDamage = 5;
     private int maxDamage = 10;
+
     public float time;
 
     void Start()
@@ -45,9 +46,14 @@ public class ZombieSpawner : MonoBehaviour
     {
         while (true)
         {
-            SpawnWave();
-            yield return new WaitForSeconds(time);
-            waveCount++;
+            if (waveCount < 8)
+            {
+                SpawnWave();
+                yield return new WaitForSeconds(time);
+                waveCount++;
+
+            }
+
         }
     }
 
